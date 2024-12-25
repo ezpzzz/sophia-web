@@ -1,0 +1,1781 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap');
+
+/* The widget will be positioned at bottom-right with 20px margin */
+.sc-launcher {
+  right: 20px !important;
+  bottom: 20px !important;
+  width: 60px !important;
+  height: 60px !important;
+  overflow: hidden !important;
+  position: fixed !important;
+  border-radius: 50% !important;
+}
+
+/* Center the chat icon in the launcher button */
+.sc-launcher .sc-open-icon,
+.sc-launcher .sc-closed-icon {
+  position: absolute !important;
+  inset: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Ensure the SVG icon itself is centered and properly sized */
+.sc-launcher svg {
+  width: 25px !important;
+  height: 25px !important;
+  position: static !important;
+}
+
+/* Style the launcher tooltip */
+.sc-launcher-tooltip {
+  font-family: 'Work Sans', sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+  padding: 12px 16px !important;
+  border-radius: 8px !important;
+  max-width: 280px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  background-color: #FFFFFF !important;
+  color: #1E1B3C !important;
+  margin-right: 12px !important;
+}
+
+/* Add a nice arrow to the tooltip */
+.sc-launcher-tooltip::after {
+  content: '' !important;
+  position: absolute !important;
+  right: -8px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  border-width: 8px 0 8px 8px !important;
+  border-style: solid !important;
+  border-color: transparent transparent transparent #FFFFFF !important;
+}
+
+/* Style the header title */
+.sc-header--title {
+  font-family: 'Work Sans', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+
+/* Optional: Style the chat window header */
+.sc-header {
+  min-height: 60px !important;
+  padding: 16px 20px !important;
+  pointer-events: none !important;
+}
+
+/* Add these new font-family rules */
+.sc-message--text {
+  font-family: 'Work Sans', sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+}
+
+.sc-message-input {
+  font-family: 'Work Sans', sans-serif !important;
+  font-size: 15px !important;
+}
+
+/* Add these new styles for the custom header */
+.custom-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  padding: 20px 24px !important;
+  background-color: #1E1B3C !important;
+  color: #ffffff !important;
+  min-height: 90px !important;
+  box-sizing: border-box !important;
+  pointer-events: none !important;
+  user-select: none !important;
+}
+
+.header-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  pointer-events: auto !important;
+  padding-left: 0 !important;
+  flex: 1 !important;
+}
+
+.header-buttons {
+  display: flex !important;
+  gap: 8px !important;
+  align-items: center !important;
+  pointer-events: auto !important;
+  padding-right: 0 !important;
+  margin-left: auto !important;
+}
+
+.header-title {
+  font-family: 'Work Sans', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  margin-left: 0 !important;
+}
+
+/* Update the header buttons container */
+.header-buttons {
+  display: flex !important;
+  gap: 4px !important;
+  align-items: center !important;
+  pointer-events: auto !important;
+  position: relative !important;
+  z-index: 1 !important;
+  margin-right: 4px !important;
+}
+
+/* Standardize both buttons */
+.reset-button,
+.sc-header--close-button {
+  background: none !important;
+  border: none !important;
+  padding: 4px !important;
+  cursor: pointer !important;
+  color: #ffffff !important;
+  border-radius: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: background-color 0.2s ease !important;
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  min-height: 28px !important;
+}
+
+/* Standardize hover effects */
+.reset-button:hover,
+.sc-header--close-button:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Standardize SVG icons */
+.reset-button svg,
+.sc-header--close-button svg {
+  width: 20px !important;
+  height: 20px !important;
+  stroke: currentColor !important;
+  fill: none !important;
+  display: block !important;  /* Ensure proper display */
+}
+
+/* Add specific styles for close button container */
+.sc-header--close-button-container {
+  width: 36px !important;
+  height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Hide all avatar tooltips */
+.sc-message--avatar {
+  pointer-events: auto !important;
+}
+
+.sc-message--avatar::before,
+.sc-message--avatar::after {
+  display: none !important;
+}
+
+/* Hide any potential tooltip containers */
+[data-tooltip],
+[data-tooltip]::before,
+[data-tooltip]::after {
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* Style message containers and avatar positioning */
+.sc-message {
+  position: relative !important;
+  margin-bottom: 16px !important;
+}
+
+.sc-message--content.received {
+  position: relative !important;  /* Make this a positioning context */
+  margin-left: 40px !important;  /* Space for avatar */
+  padding-bottom: 0 !important;  /* Remove any bottom padding */
+}
+
+/* Update the avatar hiding and styling rules */
+.sc-message--avatar {
+  position: absolute !important;
+  left: -40px !important;
+  bottom: 0 !important;
+  width: 30px !important;
+  height: 30px !important;
+  margin: 0 !important;
+  border-radius: 50% !important;
+  background-color: #5423E7 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.sc-message--avatar img {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+}
+
+/* Remove tooltip-related styles that might interfere */
+.sc-message--avatar.v-popper--has-tooltip {
+  pointer-events: none !important;
+}
+
+/* Hide tooltips */
+.v-popper__popper {
+  display: none !important;
+}
+
+/* Remove any ::after pseudo-elements */
+.sc-message--avatar::after {
+  display: none !important;
+}
+
+/* Style for the close button */
+.close-button {
+  background: none !important;
+  border: none !important;
+  padding: 4px !important;
+  cursor: pointer !important;
+  color: #ffffff !important;
+  border-radius: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: background-color 0.2s ease !important;
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  min-height: 28px !important;
+}
+
+.close-button:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.close-button svg {
+  width: 20px !important;
+  height: 20px !important;
+  stroke: currentColor !important;
+  fill: none !important;
+  display: block !important;
+}
+
+.download-button {
+  background: none !important;
+  border: none !important;
+  padding: 4px !important;
+  cursor: pointer !important;
+  color: #ffffff !important;
+  border-radius: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: background-color 0.2s ease !important;
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  min-height: 28px !important;
+}
+
+.download-button:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.download-button svg {
+  width: 20px !important;
+  height: 20px !important;
+  stroke: currentColor !important;
+  fill: none !important;
+  display: block !important;
+}
+
+/* Add/update these styles */
+
+/* Set a max-width for the chat window */
+.sc-chat-window {
+  max-width: 380px !important;
+  width: 100% !important;
+  right: 20px !important;
+}
+
+/* Ensure all default header buttons are disabled */
+.sc-header--close-button,
+.sc-header--team-name,
+.sc-header--title {
+  pointer-events: none !important;
+  user-select: none !important;
+}
+
+/* Home Screen Styles */
+.chat-home-screen {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  height: 100% !important;
+  background-color: #F8F9FE !important;
+  padding: 0 !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  width: 100% !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+
+.home-content-wrapper {
+  padding: 24px 0 0 !important;
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 100% !important;
+  width: 100% !important;  /* Ensure full width */
+  box-sizing: border-box !important;  /* Include padding in width calculation */
+  max-width: 100% !important;  /* Prevent overflow */
+  overflow-x: hidden !important;  /* Prevent horizontal scroll */
+}
+
+.home-greeting {
+  font-family: 'Work Sans', sans-serif !important;
+  font-size: 32px !important;
+  font-weight: 600 !important;
+  color: #1E1B3C !important;
+  margin: 0 24px 8px !important;
+}
+
+.home-subtitle {
+  font-family: 'Work Sans', sans-serif !important;
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  color: #1E1B3C !important;
+  margin: 0 24px 24px !important;
+}
+
+.start-chat-button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background-color: #5423E7 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 16px !important;
+  width: calc(100% - 48px) !important;
+  font-family: 'Work Sans', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: #FFFFFF !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.2s ease !important;
+  margin: 0 24px !important;
+  z-index: 2 !important;
+}
+
+.start-chat-button:hover {
+  background-color: #4A1FCC !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.back-button {
+  background: none !important;
+  border: none !important;
+  padding: 4px !important;
+  cursor: pointer !important;
+  color: #ffffff !important;
+  border-radius: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: background-color 0.2s ease !important;
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  min-height: 28px !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.back-button:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.back-button svg {
+  width: 20px !important;
+  height: 20px !important;
+  stroke: currentColor !important;
+  fill: none !important;
+  display: block !important;
+  opacity: 1 !important;
+}
+
+.chat-window-opened {
+  padding-left: 8px !important; /* Adjust padding to bring elements closer */
+  padding-right: 8px !important;
+}
+
+/* Add these new styles */
+.previous-chats-section {
+  margin-top: 32px !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+.previous-chats-title {
+  font-family: 'Work Sans', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: var(--chat-secondary) !important;
+  margin-bottom: 16px !important;
+  padding: 0 24px !important;
+  align-self: flex-start !important;  /* Keep the title left-aligned */
+}
+
+.chat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 12px;
+  padding: 1px 24px;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  max-width: 100% !important;
+}
+
+.chat-item {
+  background: var(--chat-preview-bg);
+  padding: 16px 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px var(--chat-preview-shadow);
+  width: 100% !important;
+  box-sizing: border-box !important;
+  max-width: 100% !important;
+  border-radius: 8px !important;
+  margin-bottom: 4px !important;
+}
+
+.chat-item:hover {
+  background: var(--chat-background);
+  box-shadow: 0 4px 8px var(--chat-preview-shadow);
+}
+
+.chat-item-content {
+  flex: 1;
+  margin-right: 12px;
+}
+
+.chat-preview {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 14px;
+  color: var(--chat-preview-text);
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 260px !important;
+}
+
+.chat-date {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 12px;
+  color: var(--chat-preview-timestamp);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Ensure the start chat button is below the chat list */
+.start-chat-button {
+  margin-top: 16px;
+}
+
+/* Add/update these styles */
+.conversation-container {
+  padding: 20px 24px;
+  height: 100%;
+  overflow-y: auto;
+  background-color: #F8F9FE !important;
+  scroll-behavior: smooth;
+  flex: 1;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+/* For Webkit browsers (Chrome, Safari) */
+.conversation-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.conversation-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.conversation-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.messages-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+}
+
+.message-item {
+  display: flex !important;
+  flex-direction: column !important;
+  max-width: 85% !important;
+  margin-bottom: 0 !important;
+  position: relative !important;
+}
+
+.message-content {
+  display: flex !important;
+  align-items: flex-end !important;
+  gap: 8px !important;
+  width: fit-content !important;
+  position: relative !important;
+  z-index: 1 !important;
+  min-height: 32px !important;
+}
+
+.user-message {
+  align-self: flex-end !important;
+  max-width: 85% !important;
+  margin-left: auto !important;
+}
+
+.user-message .message-content {
+  margin-left: auto !important;
+}
+
+.bot-message {
+  align-self: flex-start !important;
+  max-width: 85% !important;
+}
+
+.message-bubble {
+  padding: 12px 16px !important;
+  border-radius: 12px !important;
+  font-family: 'Work Sans', sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.01em !important;
+  overflow-wrap: break-word !important;
+  box-sizing: border-box !important;
+  max-width: 100% !important;
+  white-space: normal !important;
+  min-width: 0 !important;
+  width: auto !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
+.user-message .message-bubble {
+  background-color: #5423E7 !important;
+  color: #FFFFFF !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.02em !important;
+  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 12px !important;
+  border-top-left-radius: 12px !important;
+  border-bottom-left-radius: 12px !important;
+  margin-left: auto !important;
+}
+
+.bot-message .message-bubble {
+  background-color: #FFFFFF !important;
+  color: #2C3E50 !important;
+  font-weight: 400 !important;
+  border-radius: 12px !important;
+  border-top-right-radius: 12px !important;
+  border-top-left-radius: 12px !important;
+  border-bottom-right-radius: 12px !important;
+  margin-right: auto !important;
+}
+
+.bot-avatar {
+  position: relative !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  background-color: #5423E7 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: white !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  flex-shrink: 0 !important;
+  align-self: flex-end !important;
+  margin-bottom: 0 !important;
+}
+
+.avatar-status-indicator {
+  position: absolute !important;
+  bottom: -1px !important;
+  right: -1px !important;
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  border: 2px solid #FFFFFF !important;
+  z-index: 3 !important;
+}
+
+.avatar-status-indicator.ok {
+  background-color: #10B981 !important;
+}
+
+.avatar-status-indicator.warn {
+  background-color: #F59E0B !important;
+}
+
+.avatar-status-indicator.crit {
+  background-color: #EF4444 !important;
+}
+
+.bot-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Ensure user messages don't have the avatar space */
+.user-message .message-content {
+  justify-content: flex-end;
+}
+
+.chat-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-home-screen {
+  flex: 1;
+  background: #F8F9FE;
+  overflow-y: auto;
+}
+
+.previous-chats-section {
+  margin-top: 32px;
+  width: 100%;
+}
+
+.chat-list {
+    display: flex;
+  flex-direction: column;
+    gap: 8px;
+  margin-top: 12px;
+}
+
+.chat-item {
+  background: #FFFFFF;
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.chat-item:hover {
+  background: #F8F9FE;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ... rest of your styles ... */
+
+.chat-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.chat-window {
+  width: 440px !important;
+  height: 720px !important;
+  max-height: calc(100vh - 40px) !important;
+  background: #fff;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 40px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-bottom: 20px;
+  position: relative !important;
+}
+
+.launcher-button {
+  width: 64px !important;
+  height: 64px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  position: relative !important;
+  transition: all 0.2s ease !important;
+}
+
+.launcher-button:hover {
+  transform: scale(1.02) !important;
+}
+
+.launcher-button svg {
+  width: 28px !important;
+  height: 28px !important;
+  color: white !important;
+  transition: transform 0.2s ease !important;
+}
+
+/* Add status indicator dot to launcher */
+.launcher-button::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 4px !important;
+  right: 4px !important;
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  border: 2px solid #FFFFFF !important;
+  background-color: var(--status-color, #10B981) !important;
+  transform: none !important;
+}
+
+/* Status color variations */
+.launcher-button.status-ok::after {
+  --status-color: var(--chat-status-ok) !important;
+}
+
+.launcher-button.status-warn::after {
+  --status-color: var(--chat-status-warn) !important;
+}
+
+.launcher-button.status-crit::after {
+  --status-color: var(--chat-status-crit) !important;
+}
+
+/* Add/update input styles */
+.user-input {
+  padding: 16px 16px !important;
+  background-color: #F8F9FE !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+.input-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  background-color: #FFFFFF !important;
+  border-radius: 24px !important;
+  padding: 4px 4px 4px 16px !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+  transition: all 0.2s ease !important;
+  position: relative !important;
+  z-index: 1 !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  margin: 0 -4px !important;
+}
+
+.input-wrapper:focus-within {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Update input field styles */
+.user-input input {
+  flex: 1 1 auto !important;
+  border: none !important;
+  background: transparent !important;
+  height: 44px !important;
+  padding: 0 8px !important;
+  font-family: 'Work Sans', sans-serif !important;
+  font-size: 15px !important;
+  color: var(--chat-input-text) !important;
+  outline: none !important;
+  width: 100% !important;
+}
+
+.user-input input::placeholder {
+  color: var(--chat-input-placeholder) !important;
+  opacity: 0.8 !important;
+}
+
+/* Update send button styles */
+.user-input button {
+  flex: 0 0 auto !important;
+  background: #EBEAEF !important; /* Default/inactive state background */
+  border: none !important;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: default !important;
+  transition: all 0.2s ease !important;
+  padding: 0 !important;
+  margin: 0 0 0 4px !important;
+}
+
+.user-input button svg {
+  width: 20px !important;
+  height: 20px !important;
+  stroke: #6B7280 !important; /* Default/inactive state color */
+  transition: all 0.2s ease !important;
+}
+
+/* Active state for send button */
+.user-input button.active {
+  background: #5423E7 !important;
+  cursor: pointer !important;
+}
+
+.user-input button.active svg {
+  stroke: #FFFFFF !important;
+}
+
+.user-input button.active:hover {
+  background: #4A1FCC !important;
+  transform: scale(1.05) !important;
+}
+
+/* Mobile responsive styles */
+@media screen and (max-width: 640px) {
+  .chat-window {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    max-height: 100vh !important;
+  }
+
+  .chat-widget {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    z-index: 9999 !important;
+    width: 100% !important;
+  }
+
+  .launcher-button {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    z-index: 9999 !important;
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .conversation-container {
+    height: calc(100vh - 160px) !important;
+  }
+
+  .chat-home-screen {
+    height: calc(100vh - 100px) !important;
+  }
+
+  /* Adjust padding for mobile */
+  .home-content-wrapper {
+    padding: 16px 0 16px !important;
+  }
+
+  /* Adjust font sizes for mobile */
+  .sc-header--title {
+    font-size: 28px !important;
+  }
+
+  .home-subtitle {
+    font-size: 20px !important;
+  }
+}
+
+/* Add styles for markdown content */
+.message-bubble {
+  /* ... existing styles ... */
+  overflow-wrap: break-word !important;
+}
+
+.message-bubble p {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: inherit !important;
+  display: inline !important;
+}
+
+.message-bubble p:first-child {
+  margin-top: 0 !important;
+}
+
+.message-bubble p:last-child {
+  margin-bottom: 0 !important;
+}
+
+.message-bubble p + p {
+  margin-top: 0.5em !important;
+}
+
+.message-bubble pre {
+  background: rgba(0, 0, 0, 0.05) !important;
+  padding: 8px !important;
+  border-radius: 4px !important;
+  overflow-x: auto !important;
+}
+
+.message-bubble code {
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace !important;
+  font-size: 0.9em !important;
+}
+
+.message-bubble ul, 
+.message-bubble ol {
+  margin: 0 !important;
+  padding-left: 1.5em !important;
+}
+
+.message-bubble li {
+  margin: 0 !important;
+}
+
+.message-bubble a {
+  color: inherit !important;
+  text-decoration: underline !important;
+}
+
+/* Adjust link colors for bot messages */
+.bot-message .message-bubble a {
+  color: #5423E7 !important;
+}
+
+/* Adjust code block colors for user messages */
+.user-message .message-bubble pre,
+.user-message .message-bubble code {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Add styles for the show more button */
+.show-more-button {
+  background: none !important;
+  border: none !important;
+  padding: 12px !important;
+  width: 100% !important;
+  font-family: 'Work Sans', sans-serif !important;
+  font-size: 14px !important;
+  color: #5423E7 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-top: 8px !important;
+}
+
+.show-more-button:hover {
+  background-color: rgba(84, 35, 231, 0.05) !important;
+}
+
+.powered-by-link {
+  padding: 0 !important;
+  color: #666666 !important;
+  text-decoration: none !important;
+  font-family: 'Work Sans', sans-serif !important;
+  font-size: 12px !important;
+  transition: color 0.2s ease !important;
+}
+
+.powered-by-link:hover {
+  color: #5423E7 !important;
+}
+
+/* Update message spacing for threads */
+.message-item {
+  margin-bottom: 4px !important;
+  position: relative !important;
+}
+
+.message-item.thread-start {
+  margin-bottom: 2px !important;
+}
+
+.message-item.thread-middle {
+  margin-top: 1px !important;
+  margin-bottom: 1px !important;
+}
+
+.message-item.thread-end {
+  margin-top: 1px !important;
+  margin-bottom: 12px !important;
+}
+
+/* First, completely remove ALL thread line styles */
+/* Remove any stray lines */
+.bot-message::after {
+  content: none !important;
+}
+
+/* Only show thread line for messages that are part of a thread */
+.bot-message.thread-start.has-thread::after {
+  content: '' !important;
+  position: absolute !important;
+  left: 15px !important;
+  top: 40px !important;
+  height: 8px !important;
+  width: 2px !important;
+  background-color: rgba(84, 35, 231, 0.1) !important;
+  z-index: 0 !important;
+}
+
+/* Thread middle and end lines */
+.bot-message.thread-middle::after,
+.bot-message.thread-end::after {
+  content: '' !important;
+  position: absolute !important;
+  left: 15px !important;
+  top: -2px !important;
+  height: calc(100% + 8px) !important;
+  width: 2px !important;
+  background-color: rgba(84, 35, 231, 0.1) !important;
+  z-index: 0 !important;
+}
+
+/* Clean slate - remove ALL pseudo elements */
+*::before,
+*::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Now add ONLY the thread line we want */
+.bot-message.thread-middle .message-content,
+.bot-message.thread-end .message-content {
+  position: relative !important;
+}
+
+.bot-message.thread-middle .message-content::before,
+.bot-message.thread-end .message-content::before {
+  content: '' !important;
+  display: block !important;
+  position: absolute !important;
+  left: 15px !important;
+  top: -6px !important;
+  height: calc(100% + 8px) !important;
+  width: 2px !important;
+  background-color: rgba(84, 35, 231, 0.1) !important;
+  z-index: 0 !important;
+}
+
+.bot-message.thread-start.has-thread .message-content::after {
+  content: '' !important;
+  display: block !important;
+  position: absolute !important;
+  left: 15px !important;
+  top: 32px !important;
+  height: 8px !important;
+  width: 2px !important;
+  background-color: rgba(84, 35, 231, 0.1) !important;
+  z-index: 0 !important;
+}
+
+/* Ensure bot avatar stays above the line */
+.bot-avatar {
+  position: relative !important;
+  z-index: 2 !important;
+  background-color: #5423E7 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Adjust spacing for threaded messages */
+.message-item.thread-middle,
+.message-item.thread-end {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Hide avatar for middle and end messages */
+.hidden-avatar {
+  display: none !important;
+}
+
+/* Update the message content for threaded messages */
+.bot-message.thread-middle .message-content,
+.bot-message.thread-end .message-content {
+  padding-left: 38px !important;
+  margin-top: 2px !important;
+}
+
+/* Update message bubble styling for threads */
+.bot-message.thread-start .message-bubble {
+  border-bottom-left-radius: 4px !important;
+}
+
+.bot-message.thread-middle .message-bubble {
+  border-radius: 12px 12px 12px 4px !important;
+}
+
+.bot-message.thread-end .message-bubble {
+  border-radius: 12px !important;
+}
+
+/* Remove any conflicting margin/width constraints */
+.message-content {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  width: 100% !important;
+}
+
+.header-title-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+}
+
+.dot.ok {
+  background-color: #10B981;
+}
+
+.dot.warn {
+  background-color: #F59E0B;
+}
+
+.dot.crit {
+  background-color: #EF4444;
+}
+
+.status-indicator.expanded {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+
+.status-text {
+  color: white;
+  font-size: 12px;
+  font-family: 'Work Sans', sans-serif;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+  line-height: 1;
+}
+
+.status-indicator.expanded .status-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Remove the hover tooltip since we're using the animated text */
+.status-indicator:hover::after {
+  display: none;
+}
+
+/* Remove all previous status indicator styles and replace with these minimal styles */
+.header-status-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  line-height: 0;
+  display: inline-flex;
+}
+
+.header-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+}
+
+.header-status-dot.ok {
+  background-color: #10B981;
+}
+
+.header-status-dot.warn {
+  background-color: #F59E0B;
+}
+
+.header-status-dot.crit {
+  background-color: #EF4444;
+}
+
+/* Add these styles */
+.powered-by-section {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 16px !important;
+  gap: 12px !important;
+  margin-top: auto !important;
+}
+
+.separator {
+  color: #666666 !important;
+  opacity: 0.5 !important;
+}
+
+.system-status-link {
+  background: none !important;
+  border: none !important;
+  color: #666666 !important;
+  text-decoration: none !important;
+  font-family: 'Work Sans', sans-serif !important;
+  font-size: 12px !important;
+  cursor: pointer !important;
+  transition: color 0.2s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: normal !important;
+}
+
+.separator {
+  color: #666666 !important;
+  opacity: 0.5 !important;
+  line-height: normal !important;
+}
+
+.service-status {
+  margin: 24px;
+  padding: 20px;
+  background: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.status-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding-bottom: 0;
+}
+
+.status-summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-title {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1E1B3C;
+  margin: 0;
+}
+
+.expand-button {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #1E1B3C;
+  opacity: 0.5;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expand-button:hover {
+  opacity: 1;
+}
+
+.expand-button.is-expanded {
+  transform: rotate(180deg);
+}
+
+.status-grid {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-radius: 8px;
+  background: #F8F9FE;
+  transition: all 0.2s ease;
+}
+
+.status-icon {
+  margin-right: 12px;
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.service-name {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1E1B3C;
+  display: flex;
+  align-items: center;
+}
+
+.status-text {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 13px;
+  color: #666666;
+}
+
+.status-link {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 6px;
+  color: #1E1B3C;
+  opacity: 0.4;
+  transition: opacity 0.2s ease;
+}
+
+.status-link:hover {
+  opacity: 0.8;
+}
+
+/* Status colors */
+.dot.ok {
+  background-color: #10B981;
+}
+
+.dot.warn {
+  background-color: #F59E0B;
+}
+
+.dot.crit {
+  background-color: #EF4444;
+}
+
+/* Smooth transitions */
+.status-grid {
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+}
+
+/* Status hover effect */
+.status-item:hover {
+  background: #F3F4F6;
+}
+
+.system-status-page {
+  height: 100%;
+  padding: 24px;
+  background: #F8F9FE;
+  overflow-y: auto;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.status-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.overall-status {
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.overall-status h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: #1E1B3C;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot.ok {
+  background-color: #10B981;
+}
+
+.dot.warn {
+  background-color: #F59E0B;
+}
+
+.dot.crit {
+  background-color: #EF4444;
+}
+
+.services-grid {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-radius: 8px;
+  background: #F8F9FE;
+  transition: all 0.2s ease;
+}
+
+.status-item:hover {
+  background: #F3F4F6;
+}
+
+.status-icon {
+  margin-right: 12px;
+}
+
+.status-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.service-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1E1B3C;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.status-text {
+  font-size: 13px;
+  color: #666666;
+}
+
+.status-link {
+  display: inline-flex;
+  align-items: center;
+  color: #1E1B3C;
+  opacity: 0.4;
+  transition: opacity 0.2s ease;
+  margin-left: 8px;
+}
+
+.status-link:hover {
+  opacity: 0.8;
+}
+
+/* Mobile responsive styles */
+@media screen and (max-width: 640px) {
+  .system-status-page {
+    padding: 16px;
+  }
+
+  .overall-status {
+    padding: 20px;
+  }
+
+  .overall-status h2 {
+    font-size: 16px;
+  }
+}
+
+/* Update conversation container to fill available space */
+.conversation-container {
+  flex: 1 1 auto !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  padding: 16px !important;
+}
+
+/* Adjust message spacing */
+.messages-wrapper {
+  gap: 4px !important;
+}
+
+.message-item {
+  margin-bottom: 4px !important;
+}
+
+/* Mobile responsive adjustments */
+@media screen and (max-width: 640px) {
+  .user-input {
+    padding: 8px 12px !important;
+    position: sticky !important;
+    bottom: 0 !important;
+    background-color: #F8F9FE !important;
+  }
+
+  .input-wrapper {
+    padding: 4px 4px 4px 12px !important;
+  }
+
+  .conversation-container {
+    padding: 12px !important;
+  }
+  
+  /* Ensure proper spacing at the bottom on mobile */
+  .chat-container {
+    padding-bottom: env(safe-area-inset-bottom) !important;
+  }
+}
+
+/* Thread styling adjustments */
+.message-item.thread-middle,
+.message-item.thread-end {
+  margin-top: 1px !important;
+  margin-bottom: 1px !important;
+}
+
+.message-item.thread-end {
+  margin-bottom: 12px !important;
+}
+
+/* Add keyframes for the pulsing animation */
+@keyframes pulse-border {
+  0% {
+    box-shadow: 0 2px 8px rgba(84, 35, 231, 0.1), 0 0 0 1px rgba(84, 35, 231, 0.2) !important;
+    transform: scale(1) !important;
+  }
+  50% {
+    box-shadow: 0 2px 20px rgba(84, 35, 231, 0.25), 0 0 0 2px rgba(84, 35, 231, 0.6) !important;
+    transform: scale(1.02) !important;
+  }
+  100% {
+    box-shadow: 0 2px 8px rgba(84, 35, 231, 0.1), 0 0 0 1px rgba(84, 35, 231, 0.2) !important;
+    transform: scale(1) !important;
+  }
+}
+
+/* Update shimmer animation keyframes */
+@keyframes shimmer {
+  0% {
+    background-position: -100% 0 !important;
+  }
+  100% {
+    background-position: 100% 0 !important;
+  }
+}
+
+/* Add spinning loader animation */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Base input wrapper styles */
+.input-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  background-color: #FFFFFF !important;
+  border-radius: 24px !important;
+  padding: 4px 4px 4px 16px !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+  transition: all 0.2s ease !important;
+  position: relative !important;
+  z-index: 1 !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  margin: 0 -4px !important;
+}
+
+/* Bot typing state - without glow effect */
+.input-wrapper.bot-typing {
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+  background: #FFFFFF !important;
+}
+
+/* Input field in typing state */
+.input-wrapper.bot-typing input {
+  color: rgba(107, 114, 128, 0.6) !important;
+  cursor: not-allowed !important;
+}
+
+/* Button in typing state */
+.input-wrapper.bot-typing button {
+  background: #5423E7 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+}
+
+/* Spinner styles */
+.input-wrapper.bot-typing button svg {
+  width: 20px !important;
+  height: 20px !important;
+  border: 2px solid #FFFFFF !important;
+  border-radius: 50% !important;
+  border-right-color: transparent !important;
+  animation: spin 0.75s linear infinite !important;
+}
+
+/* Hide placeholder during typing */
+.input-wrapper.bot-typing input::placeholder {
+  color: transparent !important;
+}
+
+/* Spinner animation */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Hide original SVG contents */
+.input-wrapper.bot-typing button svg * {
+  display: none !important;
+}
+
+/* Add styles for the floating preview */
+.recent-chat-preview {
+  position: absolute !important;
+  bottom: calc(100% + 16px) !important;
+  right: 0 !important;
+  background: rgba(255, 255, 255, 0.85) !important;
+  padding: 12px 16px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
+  min-width: 200px !important;
+  max-width: 320px !important;
+  width: auto !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  backdrop-filter: blur(8px) !important;
+  max-height: 120px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  gap: 12px !important;
+  align-items: flex-start !important;
+}
+
+.recent-chat-preview:hover {
+  background: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+}
+
+.preview-content {
+  flex: 1 !important;
+  min-width: 0 !important;  /* Enable text truncation */
+}
+
+/* Preview close button styles */
+.preview-close-button {
+  background: none !important;
+  border: none !important;
+  padding: 6px !important;
+  color: #6B7280 !important;
+  opacity: 0.6 !important;
+  cursor: pointer !important;
+  border-radius: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease !important;
+  flex-shrink: 0 !important;
+  margin: 0 -6px 0 0 !important;
+}
+
+.preview-close-button:hover {
+  opacity: 1 !important;
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+.preview-close-button svg {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+.recent-chat-preview-text {
+  opacity: 0.95 !important;
+  font-family: 'Work Sans', sans-serif !important;
+  font-size: 14px !important;
+  color: #1E1B3C !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  line-height: 1.4 !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+}
+
+.recent-chat-preview-time {
+  opacity: 0.8 !important;
+  margin-top: 8px !important;
+}
+
+/* Add mobile breakpoint for chat preview */
+@media screen and (max-width: 600px) {
+  .recent-chat-preview {
+    display: none !important;  /* Hide preview on mobile */
+  }
+}
+
+/* Add/update styles for the empty chats message */
+.empty-chats-message {
+  font-family: 'Work Sans', sans-serif !important;
+  font-size: 14px !important;
+  color: #666666 !important;
+  text-align: center !important;
+  padding: 24px 0 !important;
+  opacity: 0.7 !important;
+  font-style: italic !important;
+}
