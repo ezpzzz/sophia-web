@@ -9,7 +9,7 @@ class ChatWidgetElement extends HTMLElement {
   connectedCallback() {
     // Load your chat widget
     const script = document.createElement('script');
-    script.src = 'https://your-cdn-url/js/app.js'; // Update with your CDN URL
+    script.src = 'https://ezpzzz.github.io/sophia-web/js/app.js'; // Updated to GitHub Pages URL
     
     // Add any configuration options passed from Wix
     window.CHAT_CONFIG = {
