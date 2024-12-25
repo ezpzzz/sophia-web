@@ -24,10 +24,12 @@ module.exports = defineConfig({
     extract: true
   },
   configureWebpack: {
-    // Always use demo entry point for local serving and testing
-    entry: process.env.NODE_ENV === 'production' && !process.env.DEMO_BUILD
-      ? './src/components/ChatWidget/index.vue'
-      : './demo/src/main.js',
+    entry: {
+      app: process.env.NODE_ENV === 'production' && !process.env.DEMO_BUILD
+        ? './src/components/ChatWidget/index.vue'
+        : './demo/src/main.js',
+      'wix-loader': './src/wix-loader.js'
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src')
