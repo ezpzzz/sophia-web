@@ -1,12 +1,1 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Sophia Web Chat Demo</title><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><style>body { font-family: Arial, sans-serif; padding: 20px; }
-      #debug { position: fixed; bottom: 10px; left: 10px; }</style><script defer="defer" src="/sophia-web/js/chunk-vendors.js"></script><script defer="defer" src="/sophia-web/js/app.js"></script><script defer="defer" src="/sophia-web/js/wix-loader.js"></script><link href="/sophia-web/css/app.ebd79c92.css" rel="stylesheet"></head><body><div id="app"><h1>Sophia Web Chat Demo</h1><p>The chat widget should appear in the bottom right corner.</p></div><div id="debug"></div><script>window.addEventListener('load', () => {
-        const debug = document.getElementById('debug');
-        debug.innerHTML = `
-          <p>SophosicChat loaded: ${!!window.SophosicChat}</p>
-          <p>Vue loaded: ${!!window.Vue}</p>
-          <p>Scripts loaded:</p>
-          <ul>
-            ${Array.from(document.scripts).map(s => `<li>${s.src}</li>`).join('')}
-          </ul>
-        `;
-      });</script><script src="https://unpkg.com/vue@3/dist/vue.runtime.global.prod.js"></script><script src="js/app.js"></script><script src="js/wix-loader.js"></script><sophosic-chat-widget></sophosic-chat-widget></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>sophia-web</title><script defer="defer" src="/sophia-web/js/chunk-vendors.js"></script><script defer="defer" src="/sophia-web/js/app.js"></script><script defer="defer" src="/sophia-web/js/wix-loader.js"></script><link href="/sophia-web/css/app.ebd79c92.css" rel="stylesheet"></head><body><div id="app"></div></body></html>
